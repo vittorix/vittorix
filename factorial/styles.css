@@ -1,0 +1,26 @@
+.box {
+  margin: 1px;
+  padding: 20px;
+  background-color: rgb(163, 240, 140);
+  border-radius: 20px;
+}
+
+h1 {
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+
+#result,
+input {
+  color: blue;
+  font-size: x-large;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+#number {
+  width: 6em;
+  padding: 0.2em;
+  border-radius: 0.2em;
+  border-width: 0.05em;
+}
