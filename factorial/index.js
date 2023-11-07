@@ -1,7 +1,11 @@
 const box = document.getElementById("box");
+const inputNumber = document.getElementById("inputNumber");
 const result = document.getElementById("result");
 const error = document.getElementById("error");
 const details = document.getElementById("details");
+const buttonMinus = document.getElementById("buttonMinus");
+const buttonPlus = document.getElementById("buttonPlus");
+buttonMinus.disabled = true;
 let calls = 0;
 
 const factorial = function (n) {
@@ -12,6 +16,7 @@ const factorial = function (n) {
 
 // avoit entering or pasting of exponential numbers, negative numbers and decimal numbers
 // e.g. 1e1 = 10, -2, 3.1 would all be accepted in the input type number
+// also prevents the pasting of numbers > 170
 const beforeinputHandler = function (event) {
   if (event.data) {
     const char = event.data.toLowerCase();
@@ -26,8 +31,8 @@ const beforeinputHandler = function (event) {
   }
 };
 
-const inputHandler = function (number) {
-  const n = number.target.value;
+const evaluate = function (number) {
+  const n = number.target == undefined ? number : number.target.value;
   const reg = new RegExp("[0-9]");
   error.style.visibility = false;
 
@@ -41,7 +46,6 @@ const inputHandler = function (number) {
     details.innerHTML = "<br> recursive calls: " + calls;
     details.innerHTML += "<br> milliseconds: " + elapsed;
     error.innerHTML = "";
-
     startTime = 0;
     elapsed = 0;
   } else if (n == "") {
@@ -55,7 +59,26 @@ const inputHandler = function (number) {
     error.style.visibility = true;
   }
   calls = 0;
+
+  n < 2 ? (buttonMinus.disabled = true) : (buttonMinus.disabled = false);
+  n > 169 ? (buttonPlus.disabled = true) : (buttonPlus.disabled = false);
 };
 
-input.addEventListener("beforeinput", beforeinputHandler);
-input.addEventListener("input", inputHandler);
+const inputHandler = function (event) {
+  evaluate(event);
+};
+
+const buttonMinusHandler = function (event) {
+  inputNumber.value = Number(inputNumber.value) - 1;
+  evaluate(inputNumber.value);
+};
+
+const buttonPlusHandler = function (event) {
+  inputNumber.value = Number(inputNumber.value) + 1;
+  evaluate(inputNumber.value);
+};
+
+inputNumber.addEventListener("beforeinput", beforeinputHandler);
+inputNumber.addEventListener("input", inputHandler);
+buttonMinus.addEventListener("click", buttonMinusHandler);
+buttonPlus.addEventListener("click", buttonPlusHandler);

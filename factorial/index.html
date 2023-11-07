@@ -13,13 +13,22 @@
       >
       <br /><br />
       <input
-        id="input"
-        type="number"
-        min="1"
+        id="inputNumber"
+        type="text"
+        name="input"
+        maxlength="3"
+        min="0"
         max="170"
+        step="1"
         placeholder="1 &lt n &lt 170"
+        pattern="[0-9]{3}"
+        required
       />
 
+      <span id="buttons">
+        <button id="buttonMinus" class="button">-</button>
+        <button id="buttonPlus" class="button">+</button></span
+      >
       <span id="error"></span>
       <span id="result"></span>
       <span id="details"></span>
