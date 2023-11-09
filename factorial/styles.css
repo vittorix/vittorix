@@ -67,6 +67,7 @@ input:hover {
 
 .button {
   font-size: 1.4em;
+  color: rgb(73, 73, 173);
   width: 1.5em;
   border-radius: 0.2em;
   border-width: 0.05em;
@@ -77,6 +78,7 @@ input:hover {
 
 #buttonCopy {
   font-size: 1em;
+  color: rgb(73, 73, 173);
 }
 
 .button:active {
