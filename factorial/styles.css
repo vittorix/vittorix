@@ -1,8 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+body {
+  background-color: rgba(255, 206, 206, 0.068);
+}
+
 #box {
   font-family: "Roboto", sans-serif;
-  margin: 3px;
+  margin: auto;
   padding: 20px;
   background-color: rgb(172, 200, 252);
   border-radius: 30px;
@@ -57,6 +61,7 @@ input {
 .button:active {
   opacity: 0.5;
 }
+
 .button:hover {
   opacity: 0.7;
 }
